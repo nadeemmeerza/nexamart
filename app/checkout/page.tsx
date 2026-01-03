@@ -35,6 +35,7 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderCompleted, setOrderCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [discount, setDiscount] = useState(0);
 
   // Prevent showing checkout if order was just completed
   useEffect(() => {
@@ -53,12 +54,17 @@ export default function CheckoutPage() {
         await loadUserAddresses();
         
         // Auto-select shipping address if available
-        if (userAddresses.length > 0 && !checkout.shippingAddress) {
-          const defaultAddress = userAddresses.find(addr => addr.isDefault);
-          if (defaultAddress) {
-            updateShippingAddress(defaultAddress);
-          }
-        }
+        // if (userAddresses.length > 0 && !checkout.shippingAddress) {
+        //   const defaultAddress = userAddresses.find(addr => addr.isDefault);
+        //   if (defaultAddress) {
+        //     updateShippingAddress(defaultAddress);
+        //   }
+        // }
+
+
+        if(checkout.discount)
+          setDiscount(checkout.discount);
+
       } catch (error) {
         console.error('Failed to initialize checkout:', error);
         addNotification('Failed to load addresses', 'error');
@@ -370,7 +376,7 @@ export default function CheckoutPage() {
                       <div className="text-sm text-gray-600">
                         <p className="font-medium">{checkout.shippingMethod.name}</p>
                         <p>${checkout.shippingMethod.price.toFixed(2)}</p>
-                        <p className="text-xs text-gray-500">{checkout?.shippingMethod?.estimatedDelivery}</p>
+                        <p className="text-xs text-gray-500">{checkout?.shippingMethod?.estimatedDays}</p>
                       </div>
                     )}
                   </div>
@@ -444,16 +450,16 @@ export default function CheckoutPage() {
                     <span>${checkout.shippingMethod.price.toFixed(2)}</span>
                   </div>
                 )}
-                {checkout?.discount > 0 && (
+                {discount > 0 && (
                   <div className="flex justify-between text-green-600">
                     <span>Discount:</span>
-                    <span>-${checkout?.discount.toFixed(2)}</span>
+                    <span>-${checkout?.discount?.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between font-bold text-lg border-t pt-2">
                   <span>Total:</span>
                   <span>
-                    ${(total + (checkout.shippingMethod?.price || 0) - checkout?.discount).toFixed(2)}
+                    ${(total + (checkout.shippingMethod?.price || 0) - discount).toFixed(2)}
                   </span>
                 </div>
               </div>

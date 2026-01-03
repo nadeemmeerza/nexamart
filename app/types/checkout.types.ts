@@ -9,7 +9,7 @@ export interface CheckoutContextType {
   updateBillingAddress: (address: Address) => void;
   updateShippingMethod: (method: ShippingMethod) => void;
   updatePaymentMethod: (method: PaymentMethod) => void;
-  setDiscount: (code: string, discount: number) => void;
+  setDiscount: (code: string, discount?: number) => void;
   processPayment: (paymentDetails: any) => Promise<Order>;
   isProcessing: boolean;
   error: string | null;

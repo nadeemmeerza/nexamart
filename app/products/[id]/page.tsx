@@ -375,7 +375,7 @@ export default function ProductDetailPage() {
                 </Button>
                 <Button
                   variant="secondary"
-                  onClick={handleFavorite}
+                  onClick={()=>handleFavorite}
                   className="p-3"
                 >
                   <Heart

@@ -258,7 +258,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({
           <form onSubmit={handleSubmit} className="max-h-[80vh] overflow-y-auto p-6">
             {error && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                 <p className="text-red-800 font-medium">{error}</p>
               </div>
             )}

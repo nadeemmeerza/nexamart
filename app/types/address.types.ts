@@ -18,6 +18,7 @@ export interface Address {
   isBilling: boolean;
   createdAt?: Date;
   updatedAt?: Date;
+ 
 }
 
 // For checkout flow with personal information

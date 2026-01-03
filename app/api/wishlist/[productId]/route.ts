@@ -38,8 +38,8 @@ export async function GET(
         },
       },
     });
-    
-    const isInWishlist = wishlist?.items?.length  > 0;
+    // if wishlist exist then return true else false
+    const isInWishlist = wishlist ? true : false;
     
     return NextResponse.json({ 
       isInWishlist,

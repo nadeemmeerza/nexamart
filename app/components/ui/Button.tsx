@@ -1,4 +1,21 @@
-const Button = ({ children, variant = 'default', size = 'md', className = '', ...props }) => {
+import { ReactNode } from "react";
+
+type Variant = 'default' | 'outline' | 'ghost' | 'secondary';
+
+type Size = 'sm' |'md'|'lg';
+
+interface ButtonProps {
+  children: ReactNode;
+  variant?: Variant;
+  size?:Size;
+  className?: string;
+  onClick?: ()=>void;
+  disabled?:boolean;
+}
+
+
+
+const Button = ({ children, variant = 'default', size = 'md', className = '',onClick, ...props }:ButtonProps) => {
   const baseStyle = 'font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   const variants = {
     default: 'bg-black text-white hover:bg-gray-800 focus:ring-gray-600',

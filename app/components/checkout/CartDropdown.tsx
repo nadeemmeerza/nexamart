@@ -136,6 +136,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
             {/* Buttons */}
             <Button
               variant="default"
+              size='md'
               onClick={() => {
                 addNotification('Proceeding to checkout', 'info');
                 onClose();
@@ -149,6 +150,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               variant="outline"
               onClick={onClose}
               className="w-full"
+              size="md"
             >
               Continue Shopping
             </Button>
