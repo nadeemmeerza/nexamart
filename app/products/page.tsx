@@ -9,16 +9,24 @@ import ProductGrid from '../components/products/ProductGrid';
 
 const MOCK_PRODUCTS = [
   {
-    id: 1,
+    id: '1',
     name: 'Premium Wireless Headphones',
     price: 199.99,
     image: '🎧',
     rating: 4.8,
-    reviews: 342,
+    reviews: [342],
     category: 'Electronics',
     brand: 'SoundMax',
     stock: 8,
     isNew: true,
+    sku:'sku456',
+    images:['🎧'],
+    thumbnail:'🎧',
+    shortDescription:'', 
+    status:'',
+    reviewCount:3,
+    comparePrice:3,
+    weight:3,
   },
   // ... more products
 ];
