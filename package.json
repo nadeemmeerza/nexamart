@@ -22,7 +22,7 @@
     "dotenv": "^17.2.3",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.553.0",
-    "next": "16.0.3",
+    "next": "16.0.10",
     "next-auth": "^5.0.0-beta.30",
     "react": "19.2.0",
     "react-dom": "19.2.0",
