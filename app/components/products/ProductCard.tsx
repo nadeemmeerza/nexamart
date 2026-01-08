@@ -21,9 +21,8 @@ const ProductCard = ({ product }: { product: Product }) => {
   const { addNotification } = useNotification();
   const router = useRouter();
  
-
   const handleAddToCart = () => {
-    
+     console.log("adding to cart");
     try {
       addToCart(product, 1);
       addNotification(`${product.name} added to cart!`, "success");
